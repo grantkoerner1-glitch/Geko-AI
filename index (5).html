@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geko AI — AI Solutions for Small Business</title>
+  <meta name="description" content="Geko AI builds AI chatbots and call-handling systems for small businesses. Stay responsive 24/7 without extra staff." />
+  <meta property="og:title" content="Geko AI — AI Solutions for Small Business" />
+  <meta property="og:description" content="AI chatbots and call handlers built for small business. Up and running in days." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111110" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --g0: #ffffff; --g1: #f5f5f4; --g2: #e8e7e4; --g3: #c9c8c3;
+      --g4: #9a9893; --g5: #5c5b58; --g6: #2e2d2b; --g7: #111110;
+      --radius: 4px;
+    }
+
+    body { font-family: 'DM Sans', sans-serif; background: var(--g0); color: var(--g7); overflow-x: hidden; }
+
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 60px; background: rgba(255,255,255,0.94); border-bottom: 0.5px solid var(--g2); backdrop-filter: blur(8px); }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 20px; letter-spacing: -0.5px; color: var(--g7); }
+    .nav-logo span { font-style: italic; color: var(--g5); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 13px; color: var(--g5); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--g7); }
+    .nav-links a.active { color: var(--g7); font-weight: 500; }
+    .section-anchor { scroll-margin-top: 70px; }
+    .nav-cta { font-size: 13px; font-weight: 500; padding: 8px 20px; background: var(--g7); color: var(--g0); border: none; border-radius: var(--radius); cursor: pointer; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--g6); }
+
+    .hero { min-height: 88vh; display: flex; flex-direction: column; justify-content: center; padding: 6rem 2.5rem 4rem; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 60% 50% at 80% 50%, var(--g1) 0%, transparent 70%), repeating-linear-gradient(0deg, transparent, transparent 59px, var(--g2) 59px, var(--g2) 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, var(--g2) 59px, var(--g2) 60px); }
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g5); background: var(--g1); border: 0.5px solid var(--g3); padding: 5px 14px; border-radius: 20px; margin-bottom: 2rem; animation: fadeUp 0.6s ease both; }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--g4); border-radius: 50%; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: clamp(42px, 6vw, 76px); line-height: 1.05; letter-spacing: -1.5px; color: var(--g7); animation: fadeUp 0.6s 0.1s ease both; }
+    h1 em { font-style: italic; color: var(--g5); }
+    .hero-sub { margin-top: 1.5rem; font-size: clamp(16px, 2vw, 18px); font-weight: 300; line-height: 1.7; color: var(--g5); max-width: 520px; animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-actions { margin-top: 2.5rem; display: flex; gap: 12px; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+    .btn-primary { font-size: 14px; font-weight: 500; padding: 12px 28px; background: var(--g7); color: var(--g0); border: none; border-radius: var(--radius); cursor: pointer; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--g6); }
+    .btn-ghost { font-size: 14px; font-weight: 400; padding: 12px 28px; background: transparent; color: var(--g6); border: 0.5px solid var(--g3); border-radius: var(--radius); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+    .btn-ghost:hover { border-color: var(--g6); color: var(--g7); }
+
+    .stat-strip { display: flex; border-top: 0.5px solid var(--g2); border-bottom: 0.5px solid var(--g2); }
+    .stat-item { flex: 1; padding: 2.5rem; border-right: 0.5px solid var(--g2); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 42px; letter-spacing: -1px; color: var(--g7); line-height: 1; }
+    .stat-label { font-size: 13px; color: var(--g4); margin-top: 6px; line-height: 1.5; }
+
+    .section { padding: 6rem 2.5rem; }
+    .section-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g4); margin-bottom: 1rem; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: clamp(30px, 4vw, 48px); letter-spacing: -1px; line-height: 1.1; color: var(--g7); }
+    h2 em { font-style: italic; color: var(--g5); }
+    .section-lead { font-size: 16px; font-weight: 300; color: var(--g5); line-height: 1.7; max-width: 480px; margin-top: 1rem; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 3rem; border: 0.5px solid var(--g2); border-radius: 8px; overflow: hidden; }
+    .service-card { padding: 2.5rem; border-right: 0.5px solid var(--g2); border-bottom: 0.5px solid var(--g2); background: var(--g0); transition: background 0.2s; }
+    .service-card:hover { background: var(--g1); }
+    .service-card:nth-child(2n) { border-right: none; }
+    .service-card:nth-last-child(-n+2) { border-bottom: none; }
+    .service-icon { width: 40px; height: 40px; border: 0.5px solid var(--g2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: var(--g1); }
+    .service-icon svg { width: 18px; height: 18px; stroke: var(--g6); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .service-title { font-size: 16px; font-weight: 500; color: var(--g7); margin-bottom: 0.75rem; }
+    .service-desc { font-size: 14px; font-weight: 300; color: var(--g5); line-height: 1.7; }
+
+    .benefits { background: var(--g7); padding: 6rem 2.5rem; }
+    .benefits h2 { color: var(--g0); }
+    .benefits h2 em { color: var(--g3); }
+    .benefits .section-tag { color: var(--g4); }
+    .benefit-list { margin-top: 3rem; border: 0.5px solid var(--g5); border-radius: 8px; overflow: hidden; }
+    .benefit-row { display: flex; align-items: flex-start; gap: 2rem; padding: 2rem 2.5rem; border-bottom: 0.5px solid var(--g5); background: var(--g7); transition: background 0.2s; }
+    .benefit-row:last-child { border-bottom: none; }
+    .benefit-row:hover { background: var(--g6); }
+    .benefit-num { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--g5); min-width: 48px; line-height: 1; margin-top: 2px; }
+    .benefit-text h3 { font-size: 16px; font-weight: 500; color: var(--g0); margin-bottom: 6px; }
+    .benefit-text p { font-size: 14px; font-weight: 300; color: var(--g4); line-height: 1.7; }
+
+    .how { padding: 6rem 2.5rem; background: var(--g1); }
+    .steps { display: flex; margin-top: 3rem; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 24px; left: 24px; right: 24px; height: 0.5px; background: var(--g3); z-index: 0; }
+    .step { flex: 1; text-align: center; padding: 0 1.5rem; position: relative; z-index: 1; }
+    .step-dot { width: 48px; height: 48px; background: var(--g0); border: 0.5px solid var(--g3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--g7); }
+    .step-title { font-size: 14px; font-weight: 500; color: var(--g7); margin-bottom: 6px; }
+    .step-desc { font-size: 13px; font-weight: 300; color: var(--g5); line-height: 1.6; }
+
+    .cta-band { padding: 6rem 2.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .cta-band h2 { max-width: 600px; }
+    .cta-band .section-lead { text-align: center; max-width: 420px; }
+    .cta-band .hero-actions { justify-content: center; margin-top: 2rem; }
+
+    .chat-demo { margin-top: 3rem; max-width: 440px; border: 0.5px solid var(--g2); border-radius: 12px; overflow: hidden; background: var(--g0); }
+    .chat-header { padding: 12px 16px; border-bottom: 0.5px solid var(--g2); display: flex; align-items: center; gap: 10px; background: var(--g1); }
+    .chat-dot { width: 8px; height: 8px; background: var(--g4); border-radius: 50%; }
+    .chat-title { font-size: 13px; font-weight: 500; color: var(--g6); }
+    .chat-status { font-size: 11px; color: var(--g4); margin-left: auto; }
+    .chat-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 10px; }
+    .msg { font-size: 13px; line-height: 1.5; padding: 10px 14px; border-radius: 8px; max-width: 85%; }
+    .msg-in { background: var(--g1); color: var(--g6); align-self: flex-start; }
+    .msg-out { background: var(--g7); color: var(--g1); align-self: flex-end; }
+    .msg-typing { background: var(--g1); align-self: flex-start; display: flex; gap: 4px; align-items: center; padding: 12px 16px; }
+    .typing-dot { width: 6px; height: 6px; background: var(--g4); border-radius: 50%; animation: blink 1.2s infinite both; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes blink { 0%,80%,100%{ opacity: 0.3; transform: scale(0.8); } 40%{ opacity: 1; transform: scale(1); } }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+
+    .contact { padding: 6rem 2.5rem; background: var(--g1); }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    .contact-info h2 { color: var(--g7); }
+    .contact-info h2 em { color: var(--g5); }
+    .contact-detail { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-detail-item { display: flex; align-items: center; gap: 12px; }
+    .contact-detail-item svg { width: 16px; height: 16px; stroke: var(--g5); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .contact-detail-item span { font-size: 14px; color: var(--g5); }
+
+    .contact-form { background: var(--g0); border: 0.5px solid var(--g2); border-radius: 12px; padding: 2.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label { font-size: 12px; font-weight: 500; color: var(--g5); letter-spacing: 0.05em; text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: var(--g7); background: var(--g0); border: 0.5px solid var(--g2); border-radius: var(--radius); padding: 10px 14px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--g3); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--g5); }
+    .form-group textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239a9893' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; cursor: pointer; }
+    .form-submit { width: 100%; margin-top: 8px; font-size: 14px; font-weight: 500; padding: 13px 28px; background: var(--g7); color: var(--g0); border: none; border-radius: var(--radius); cursor: pointer; transition: background 0.2s; }
+    .form-submit:hover { background: var(--g6); }
+    .form-error { font-size: 12px; color: #b94040; margin-top: -10px; margin-bottom: 8px; display: none; }
+    .form-success { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem 2rem; gap: 1rem; }
+    .form-success-icon { width: 48px; height: 48px; background: var(--g7); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .form-success-icon svg { width: 22px; height: 22px; stroke: var(--g0); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .form-success h3 { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--g7); letter-spacing: -0.5px; }
+    .form-success p { font-size: 14px; font-weight: 300; color: var(--g5); line-height: 1.7; max-width: 280px; }
+
+    footer { padding: 2rem 2.5rem; border-top: 0.5px solid var(--g2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer .nav-logo { font-size: 16px; }
+    footer p { font-size: 12px; color: var(--g4); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+    @media (max-width: 720px) {
+      .two-col, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .steps { flex-direction: column; }
+      .steps::before { display: none; }
+      .stat-strip { flex-direction: column; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Geko<span>AI</span></div>
+  <div class="nav-links">
+    <a href="#solutions">Solutions</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get started</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">AI solutions for small business</div>
+    <h1>Your business,<br><em>always on.</em></h1>
+    <p class="hero-sub">We build AI chatbots and call-answering systems that work for you around the clock — so you never miss a customer, a question, or a sale.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a free demo</button>
+      <button class="btn-ghost" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">See how it works</button>
+    </div>
+  </div>
+</section>
+
+<div class="stat-strip">
+  <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">Availability — no<br>staff required</div></div>
+  <div class="stat-item"><div class="stat-num">~80%</div><div class="stat-label">of customer inquiries<br>are repetitive questions</div></div>
+  <div class="stat-item"><div class="stat-num">3 min</div><div class="stat-label">Average time a caller<br>waits before hanging up</div></div>
+  <div class="stat-item"><div class="stat-num">1 in 3</div><div class="stat-label">Callers won't leave<br>a voicemail</div></div>
+</div>
+
+<section class="section section-anchor" id="solutions">
+  <div class="two-col">
+    <div>
+      <div class="section-tag">Our solutions</div>
+      <h2>Two tools that <em>transform</em> how you handle customers</h2>
+      <p class="section-lead">Designed specifically for small businesses. No technical knowledge needed. Up and running in days.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="service-title">AI Chatbot</div>
+        <div class="service-desc">Answers common questions, books appointments, captures leads — directly on your website, day or night.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.36-.85a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 17z"/></svg></div>
+        <div class="service-title">AI Call Handler</div>
+        <div class="service-desc">Greets callers, gathers information, routes urgent calls, and logs every interaction — automatically.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="service-title">After-hours coverage</div>
+        <div class="service-desc">Capture every lead that comes in evenings and weekends when your team is offline.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="service-title">Insights dashboard</div>
+        <div class="service-desc">See what your customers ask most, when they call, and where leads come from — all in one place.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits section-anchor" id="benefits">
+  <div class="section-tag">Why it matters</div>
+  <h2>The cost of a <em>missed</em> customer</h2>
+  <p class="section-lead" style="color:var(--g3)">When a customer can't reach you, they don't wait. They move on. Here's what AI prevents.</p>
+  <div class="benefit-list">
+    <div class="benefit-row"><div class="benefit-num">01</div><div class="benefit-text"><h3>Lost calls = lost revenue</h3><p>Research consistently shows that the majority of callers who don't get an answer will contact a competitor rather than call back. Every missed call is a missed sale.</p></div></div>
+    <div class="benefit-row"><div class="benefit-num">02</div><div class="benefit-text"><h3>Repetitive questions drain your team</h3><p>Business owners and staff spend hours each week answering the same questions about hours, pricing, and availability. AI handles this automatically — freeing your team for higher-value work.</p></div></div>
+    <div class="benefit-row"><div class="benefit-num">03</div><div class="benefit-text"><h3>Customers expect instant responses</h3><p>Studies show customers expect a response within minutes when they reach out digitally. A chatbot responds instantly, 24 hours a day, without any wait.</p></div></div>
+    <div class="benefit-row"><div class="benefit-num">04</div><div class="benefit-text"><h3>Small teams can't scale manually</h3><p>Hiring staff to handle every interaction is expensive and unsustainable. AI gives small businesses the responsiveness of a large company — at a fraction of the cost.</p></div></div>
+  </div>
+</section>
+
+<section class="how section-anchor" id="how-it-works">
+  <div class="section-tag">How it works</div>
+  <h2>Up and running in <em>days</em></h2>
+  <div class="steps">
+    <div class="step"><div class="step-dot">1</div><div class="step-title">We learn your business</div><div class="step-desc">You tell us about your services, FAQs, and how you like to communicate with customers.</div></div>
+    <div class="step"><div class="step-dot">2</div><div class="step-title">We build your AI</div><div class="step-desc">We configure and test your chatbot and/or call handler to match your business voice exactly.</div></div>
+    <div class="step"><div class="step-dot">3</div><div class="step-title">You go live</div><div class="step-desc">We deploy to your website or phone system. You monitor everything from a simple dashboard.</div></div>
+    <div class="step"><div class="step-dot">4</div><div class="step-title">We keep improving</div><div class="step-desc">Your AI learns over time. We review performance with you monthly and make it better.</div></div>
+  </div>
+</section>
+
+<section style="padding: 6rem 2.5rem; background: var(--g0);">
+  <div class="two-col">
+    <div>
+      <div class="section-tag">See it in action</div>
+      <h2>Your AI <em>chatbot</em>, talking to a real customer</h2>
+      <p class="section-lead">This is what a visitor to your website experiences at 11pm on a Sunday — without a single staff member involved.</p>
+    </div>
+    <div class="chat-demo">
+      <div class="chat-header">
+        <div class="chat-dot" style="background:#5c5b58"></div>
+        <div class="chat-title">Westside Plumbing · AI Assistant</div>
+        <div class="chat-status">&#9679; Online</div>
+      </div>
+      <div class="chat-body" id="chat-body">
+        <div class="msg msg-in">Hi, do you handle emergency repairs?</div>
+        <div class="msg msg-out">Yes! We offer 24/7 emergency callouts for burst pipes, flooding, and gas leaks. Can I get your postcode so we can confirm coverage in your area?</div>
+        <div class="msg msg-in">SW11 — can someone come tonight?</div>
+        <div class="msg msg-out">We cover SW11. I've logged your request as urgent. An on-call plumber will call you back within 20 minutes. Can I take your best number?</div>
+        <div class="msg msg-in">07700 900 123 — thank you!</div>
+        <div class="msg msg-typing"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band section-anchor" id="pricing">
+  <div class="section-tag">Get started</div>
+  <h2>Ready to stop <em>missing</em> customers?</h2>
+  <p class="section-lead">Book a free 30-minute demo. We'll show you exactly how Geko AI would work for your specific business.</p>
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a free demo</button>
+    <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Talk to a human first</button>
+  </div>
+</section>
+
+<section class="contact section-anchor" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-tag">Contact us</div>
+      <h2>Let's talk about <em>your</em> business</h2>
+      <p class="section-lead">Have a question or want to see Geko AI in action? Fill out the form and we'll get back to you within one business day.</p>
+      <div class="contact-detail">
+
+        <div class="contact-detail-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Mon – Fri, 9am – 6pm EST</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div id="contact-fields">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First name *</label>
+            <input type="text" placeholder="Jane" id="f-first" />
+          </div>
+          <div class="form-group">
+            <label>Last name *</label>
+            <input type="text" placeholder="Smith" id="f-last" />
+          </div>
+        </div>
+        <div class="form-group">
+            <label>Email address *</label>
+            <input type="email" placeholder="jane@yourbusiness.com" id="f-email" />
+          </div>
+        <div class="form-group">
+          <label>Business name</label>
+          <input type="text" placeholder="Your business name" id="f-biz" />
+        </div>
+        <div class="form-group">
+          <label>I'm interested in</label>
+          <select id="f-interest">
+            <option value="" disabled selected>Select a service...</option>
+            <option>AI Chatbot</option>
+            <option>AI Call Handler</option>
+            <option>Both — chatbot and call handler</option>
+            <option>Not sure yet, just exploring</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your questions or message *</label>
+          <textarea placeholder="Tell us a bit about your business and what you'd like to achieve..." id="f-msg"></textarea>
+        </div>
+        <div class="form-error" id="f-error">Please fill in all required fields marked with *.</div>
+        <button class="form-submit" onclick="submitForm()">Send message &rarr;</button>
+      </div>
+
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Message sent!</h3>
+        <p>Thanks for reaching out! We've received your message and will get back to you within one business day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="nav-logo">Geko<span>AI</span></div>
+  <p>AI solutions built for small business. No jargon, no lock-ins.</p>
+  <p style="color: var(--g3)">&#169; 2026 Geko AI</p>
+</footer>
+
+<script>
+  // Chat demo animation
+  setTimeout(function() {
+    var body = document.getElementById('chat-body');
+    var typing = body.querySelector('.msg-typing');
+    if (typing) {
+      typing.remove();
+      var reply = document.createElement('div');
+      reply.className = 'msg msg-out';
+      reply.textContent = "Got it. You're all set — expect a call shortly. Is there anything else I can help with tonight?";
+      body.appendChild(reply);
+    }
+  }, 3200);
+
+  // Active nav highlight on scroll
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var sectionIds = ['solutions','how-it-works','benefits','pricing','contact'];
+  window.addEventListener('scroll', function() {
+    var current = '';
+    sectionIds.forEach(function(id) {
+      var sec = document.getElementById(id);
+      if (sec && window.scrollY >= sec.offsetTop - 100) current = id;
+    });
+    navLinks.forEach(function(link) {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // Contact form: validate then POST to Formspree
+  function submitForm() {
+    var first    = document.getElementById('f-first').value.trim();
+    var last     = document.getElementById('f-last').value.trim();
+    var email    = document.getElementById('f-email').value.trim();
+    var biz      = document.getElementById('f-biz').value.trim();
+    var interest = document.getElementById('f-interest').value || 'Not specified';
+    var msg      = document.getElementById('f-msg').value.trim();
+    var err      = document.getElementById('f-error');
+
+    var requiredMap = {'f-first': first, 'f-last': last, 'f-email': email, 'f-msg': msg};
+    var valid = true;
+    Object.keys(requiredMap).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!requiredMap[id]) { el.style.borderColor = '#b94040'; valid = false; }
+      else { el.style.borderColor = ''; }
+    });
+    if (!valid) { err.style.display = 'block'; return; }
+    err.style.display = 'none';
+
+    var btn = document.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    fetch('https://formspree.io/f/xkoqqngd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: first + ' ' + last,
+        email: email,
+        business: biz || 'Not provided',
+        interested_in: interest,
+        message: msg
+      })
+    })
+    .then(function(res) { return res.json().then(function(data) { return { ok: res.ok, data: data }; }); })
+    .then(function(result) {
+      if (result.ok) {
+        document.getElementById('contact-fields').style.display = 'none';
+        document.getElementById('form-success').style.display = 'flex';
+      } else {
+        btn.textContent = 'Send message →';
+        btn.disabled = false;
+        err.textContent = 'Something went wrong. Please try again.';
+        err.style.display = 'block';
+      }
+    })
+    .catch(function() {
+      btn.textContent = 'Send message →';
+      btn.disabled = false;
+      err.textContent = 'Network error. Please check your connection and try again.';
+      err.style.display = 'block';
+    });
+  }
+</script>
+
+</body>
+</html>
